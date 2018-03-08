@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Proveedorees" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="900493f9-87a0-4b94-8442-ec9772fa2f76">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DESDE" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="HASTA" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from proveedores left join
+ciudades on proveedores.id_ciudad=ciudades.id_ciudad where proveedores.id_proveedor between $P{DESDE} and $P{HASTA}]]>
+	</queryString>
+	<field name="id_proveedor" class="java.lang.Integer"/>
+	<field name="nombre_proveedor" class="java.lang.String"/>
+	<field name="ruc_proveedor" class="java.lang.String"/>
+	<field name="telefono1_proveedor" class="java.lang.Integer"/>
+	<field name="telefono2_proveedor" class="java.lang.Integer"/>
+	<field name="direccion_proveedor" class="java.lang.String"/>
+	<field name="correo_proveedor" class="java.lang.String"/>
+	<field name="id_ciudad" class="java.lang.Integer"/>
+	<field name="nombre_ciudad" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="79" backcolor="#006699" uuid="7b416da1-c184-49b0-ae64-3c5d9f23405a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" forecolor="#99FFFF" uuid="ca64d477-d303-4be2-b372-334c5a2367d5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROVEEDORES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="29" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="374" y="6" width="171" height="20" uuid="95dc52ef-d26d-41a0-8501-f8d2b5e46ee0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="20" backcolor="#CCCCCC" uuid="ba17725e-ce44-48c5-aecd-7c268833c5ee"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="1" width="73" height="20" uuid="b68a039a-26d2-4c95-81e1-8c7c665fd04b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROVEEDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="73" y="1" width="57" height="20" uuid="e8f941e4-1ede-4ee4-bc43-f6a570d8d6d6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="1" width="63" height="20" uuid="0f3640a2-c0b2-4cc1-a452-cb037d35bf42"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONO N°1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="193" y="1" width="60" height="20" uuid="d5038c09-4dd4-4b01-b388-f54a8b524fa1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONO N°2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="253" y="0" width="100" height="20" uuid="e75318d0-c672-44c1-ba6b-dbd3e26f39ee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="353" y="1" width="118" height="20" uuid="703cfa40-ba47-4884-a311-ba0072cf459d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CORREO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="471" y="1" width="84" height="20" uuid="d5038107-e824-448c-afb9-8d040a947acc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CIUDAD]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="73" height="21" uuid="5cdee921-2492-449e-9234-e5e585d16133"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_proveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="63" height="21" uuid="9a5a65f6-4279-4431-98c8-54bf49fc03fe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono1_proveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="0" width="57" height="21" uuid="e253c455-021b-4838-90c6-90259e78e295"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ruc_proveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="1" width="100" height="21" uuid="5ae09993-7f9e-413b-8f2b-65ec94d1030e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion_proveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="471" y="0" width="84" height="21" uuid="c28259b4-b667-4cfe-85d5-97a597cf2948"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_ciudad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="193" y="0" width="60" height="22" uuid="01ff69bd-f0c9-4bfa-9549-0dc91fa31685"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono2_proveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="353" y="1" width="118" height="21" uuid="3b7925b2-382f-4604-9e29-3826912f2e1f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{correo_proveedor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="8" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="8" splitType="Stretch"/>
+	</summary>
+</jasperReport>

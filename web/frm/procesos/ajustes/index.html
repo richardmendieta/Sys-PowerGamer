@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> AJUSTES </title>
+        <link rel="icon" type="image/png" href="../../../img/3667gamer1.ico" /> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/estilos.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body background="../../../img/scorpions.png">
+        <div id="confirmar"></div>
+        <div id="buscar"></div>
+        <div id="panelLinea" class="panel panel-primary">
+            <div class="panel-heading centrado">Ajustes | Detalle</div>
+            <div class="panel-body">
+                <form id="formLinea">
+                    <div class="row">
+                        <div class="col-md-1" style="visibility: hidden">
+                            <span>Id Linea</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_detalleajuste" name="id_detalleajuste" type="text" class="form-control input-sm" placeholder="Id" readonly="readonly" style="visibility: hidden">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Productos</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_producto" name="id_producto" type="text" class="form-control input-sm" placeholder="Id" readonly="readonly" >
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdProducto" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="nombre_producto" name="nombre_producto" type="text" class="form-control input-sm" placeholder="Nombre Producto" readonly="readonly">
+                        </div>
+                        <div class="col-md-1">
+                            <span>Cantidad</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="cantidad_ajuste" name="cantidad_ajuste" type="text" class="form-control input-sm derecha" placeholder="Cantidad" onkeypress="return soloNumeros(event)">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <span >Motivo</span>
+                        </div>
+                        <textarea class="col-md-3" COLS=6 ROWS=5 NAME="detalle_ajuste" id="detalle_ajuste" > 
+                        </textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer centrado">
+               <!--- <button id="botonAgregarLinea" type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span>Sumar</button>--->
+                <button id="botonRestarLinea" type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-minus"></span>Restar</button>
+                <!--     <button id="botonModificarLinea" type="button" class="btn btn-warning btn-sm">Restar</button>-->
+                <!--  <button id="botonEliminarLinea" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmarEliminarLinea">Eliminar</button>-->
+                <button id="botonSalirLinea" type="button" class="btn btn-info btn-sm"> <span class="glyphicon glyphicon-log-out"></span>Salir</button>
+            </div>
+        </div>
+        <div id="panelPrograma" >
+            <div id="panelDiseño" class="panel panel-primary">
+                <div class="panel-heading centrado">AJUSTES | <span id="snombre_empresa">  </span> | </div>
+                <div class="panel-body">
+                    <form id="formPrograma">
+                        <div class="row">
+                            <div class="col-md-2" style="visibility: hidden">
+                                <span class="glyphicon glyphicon-asterisk"> Id </span>
+                            </div>
+                            <div class="col-md-1">
+                                <input id="id_ajuste" name="id_ajuste" type="text" class="form-control input-sm" placeholder="Id" style="visibility: hidden">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <span>Orden Ajuste</span>
+                            </div>
+                            <div class="col-lg-3"  >
+
+                                <input id="orden_ajuste" name="orden_ajuste" type="text" class="form-control input-sm" >                         
+                            </div>
+
+                            <div class="col-md-1">
+                                <button id="botonBuscarIdAjuste" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <span > Usuario </span>
+                            </div>
+                            <div class="col-md-1">
+                                <input id="id_usuario" name="id_usuario" type="text" class="form-control input-sm" placeholder="Id" readonly="readonly" >
+                            </div>
+
+                            <div class="col-md-2">
+                                <input id="nombre_usuario" name="nombre_usuario" type="text" class="form-control input-sm" placeholder="Nombre" readonly="readonly" >
+                            </div>
+
+                            <div class="col-md-1">
+                                <span >Fecha</span>
+                            </div>
+                            <div class="col-md-3">
+                                <input id="fecha_ajuste" name="fecha_ajuste" type="date" class="form-control 
+                                       input-sm" >                         
+                            </div>
+                        </div>
+                        <BR>
+                        <BR>
+                        <div style="font-size: 20px;text-align: center"><b>DETALLE AJUSTES</b></div>
+                        <BR>
+                        <BR>
+                    </form>
+                    <div id="detalle" hidden="">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="centrado" >Cantidad</th>
+                                    <th class="centrado">Producto</th>
+                                    <th class="centrado">Motivo</th>
+                                    <th  class="centrado"><button id="agregar" name="agregar" onclick="agregarLinea()"  type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span></button></th>
+                                </tr>
+                            </thead>
+                            <tbody id="contenidoDetalle">
+                            </tbody>
+                        </table>
+                        <br>
+                    </div>
+                </div>
+                <div class="panel-footer centrado">
+                    <button 	 id="botonAgregar" type="button" class="btn btn-success btn-success" ><span class="glyphicon glyphicon-ok"></span>&nbsp;Agregar</button>   &nbsp;
+                    <button id="botonReporte" type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-file"></span>Reporte</button>
+                    <!--  <button id="botonImprimir" type="button" class="btn btn-success btn-sm">Imprimir</button>-->
+                    <!--  <button id="botonEliminar" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmarEliminar">Eliminar</button>-->
+                    <!--  <button id="botonImprimir" type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-list-alt"> </span>&nbsp;Imprimir</button> &nbsp;    -->    
+                    <button id="botonSalir" type="button" class="btn btn-info btn-info" ><span class="glyphicon glyphicon-log-out"> </span>&nbsp;Salir</button>
+
+                </div>
+            </div>
+           <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        </div>
+        <div id="mensajes" class="well well-sm centrado">Mensajes del Sistema.</div>
+        <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header  centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Mensaje del Sistema</h4>
+                    </div>
+                    <div class="modal-body">
+                        Está seguro de eliminar estos datos?
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonEliminarAlert" type="button" class="btn btn-primary btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="confirmarEliminarLinea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header  centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabelLinea">Mensaje del Sistema</h4>
+                    </div>
+                    <div class="modal-body">
+                        Está seguro de eliminar esta linea?
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonEliminarAlertLinea" type="button" class="btn btn-primary btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../../js/funciones.js" type="text/javascript"></script>
+        <script src="js/funciones.js" type="text/javascript"></script>
+        <script>
+                                        verificarSesion(true);
+
+                                        $("#buscar").css("display", "none");
+                                        $("#panelLinea").css("display", "none");
+                                        $("#orden_ajuste").focus();
+                                        buscarIdAjuste();
+                                        //siguienteCampo("#id_ajuste", "#id_proveedor", false);
+
+                                        //siguienteCampo("#id_producto", "#cantidad_productoajuste", false);
+
+                                        if ($("#id_ajuste").val() === "0") {
+                                            // siguienteCampo("#id_proveedor", "#botonAgregar", false);
+                                        } else {
+
+                                            // siguienteCampo("#id_proveedor", "#botonModificar", false);
+                                        }
+
+                                        //   buscarIdUsuarioClave();
+
+                                        $("#id_ajuste").focusout(function (event) {
+                                            if ($("#id_ajuste").val() === "") {
+                                                $("#id_ajuste").val("0");
+                                            }
+                                            buscarIdAjuste();
+
+                                            $("#id_ajuste").val("0");
+
+
+                                        });
+
+                                         
+
+                                        $("#id_producto").focusout(function (event) {
+                                            if ($("#id_producto").val() === "") {
+                                                $("#id_producto").val("0");
+                                            }
+                                            buscarIdProducto();
+                                        });
+                                        $("#botonBuscarIdAjuste").on('click', function () {
+                                            $("#buscar").load("buscar.html");
+                                            $("#buscar").fadeIn("slow");
+                                            $("#panelPrograma").fadeOut("slow");
+                                        });
+                                        $("#botonBuscarIdProveedor").on('click', function () {
+                                            $("#buscar").load("buscarProveedores.html");
+                                            $("#buscar").fadeIn("slow");
+                                            $("#panelPrograma").fadeOut("slow");
+                                        });
+
+                                        $("#botonBuscarIdUsuario").on('click', function () {
+                                            $("#buscar").load("buscarUsuarios.html");
+                                            $("#buscar").fadeIn("slow");
+                                            $("#panelPrograma").fadeOut("slow");
+                                        });
+                                        $("#botonBuscarIdProducto").on('click', function () {
+                                            $("#buscar").load("buscarProduc.html");
+                                            $("#buscar").fadeIn("slow");
+                                            $("#panelLinea").fadeOut("slow");
+                                        });
+
+
+                                        $("#botonAgregar").on('click', function () {
+                                            if (validarFormularioAjuste()) {
+
+                                                agregarAjuste();
+                                            }
+
+
+                                        });
+                                        $("#botonModificar").on('click', function () {
+
+                                            modificarAjuste();
+
+                                        });
+                                        $("#botonEliminarAlert").on('click', function () {
+                                            eliminarAjuste();
+                                            $('#confirmarEliminar').modal('hide');
+                                        });
+                                        $("#botonSalir").on('click', function () {
+                                            location.href = "../../../menu.html";
+                                        });
+
+                                        $("#botonAgregarLinea").on('click', function () {
+                                            if (validarFormularioAjuste()) {
+                                                SumarAjusteDetalle();
+                                            }
+
+
+                                        });
+                                        $("#botonRestarLinea").on('click', function () {
+                                            if (validarFormularioAjuste()) {
+                                                RestarAjusteDetalle();
+                                            }
+
+
+                                        });
+                                        $("#botonModificarLinea").on('click', function () {
+
+                                            modificarAjusteDetalle();
+
+
+                                        });
+                                        $("#botonEliminarAlertLinea").on('click', function () {
+                                            eliminarAjusteDetalle();
+                                            $('#confirmarEliminarLinea').modal('hide');
+                                        });
+                                        $("#botonSalirLinea").on('click', function () {
+                                            $("#panelLinea").fadeOut("slow");
+                                            $("#panelPrograma").fadeIn("slow");
+                                        });
+
+                                        $("#botonReporte").on('click', function () {
+
+                                            $("#buscar").load("ajuste.html");
+                                            $("#buscar").fadeIn("slow");
+                                            $("#panelPrograma").fadeOut("slow");
+                                        });
+
+
+        </script>
+    </body>
+</html>
